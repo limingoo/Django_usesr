@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>编辑用户</title>
+<link type="text/css" rel="stylesheet" href="../static/css/style.css" >
+<style type="text/css">
+	h1 {
+		text-align: center;
+		margin-top: 200px;
+	}
+	
+	h1 a {
+		color:red;
+	}
+	
+	input {
+		text-align: center;
+	}
+</style>
+</head>
+<body>
+		<div id="header">
+			<img class="logo_img" alt="" src="../static/img/logo.gif" >
+			<span class="wel_word">编辑用户</span>
+
+		</div>
+		
+		<div id="main">
+			<form action="/doUpdateUser/" method="post">
+				<table>
+					<tr>
+						<td>用户名</td>
+						<td>密码</td>
+						<td>性别</td>
+						<td>年龄</td>
+						<td colspan="2">操作</td>
+					</tr>		
+					<tr>
+						<input name="id" type="hidden" value="{{ user.id }}"/>
+						<td><input name="uname" type="text" value="{{ user.username }}"/></td>
+						<td><input name="pwd" type="text" value="{{ user.password }}"/></td>
+						<td><input name="sex" type="text" value="{{ user.sex }}"/></td>
+						<td><input name="age" type="text" value="{{ user.age }}"/></td>
+						<td><input type="submit" value="提交"/></td>
+					</tr>		
+				</table>
+			</form>
+			
+	
+		</div>
+		
+		<div id="bottom">
+			<span>
+				尚硅谷用户管理系统.Copyright &copy;2018
+			</span>
+		</div>
+</body>
+</html>

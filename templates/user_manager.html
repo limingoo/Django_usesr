@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>用户管理</title>
+<link type="text/css" rel="stylesheet" href="../static/css/style.css" >
+</head>
+<body>
+	
+	<div id="header">
+			<img class="logo_img" alt="" src="../static/img/logo.gif" >
+			<span class="wel_word">用户管理系统</span>
+	</div>
+	
+	<div id="main">
+		<table>
+			<tr>
+				<td>用户名</td>
+				<td>密码</td>
+				<td>性别</td>
+				<td>年龄</td>
+				<td colspan="2">操作</td>
+			</tr>
+            {% for user in users %}
+                <tr>
+				<td>{{ user.username }}</td>
+				<td>{{ user.password }}</td>
+				<td>{{ user.sex }}</td>
+				<td>{{ user.age }}</td>
+				<td><a href="/updateUser/?id={{ user.id }}">修改</a></td>
+				<td><a href="/delUser/?id={{ user.id }}">删除</a></td>
+			</tr>
+            {% endfor %}
+			<tr>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+		</table>
+	</div>
+	
+	<div id="bottom">
+		<span>
+			尚硅谷用户管理系统.Copyright &copy;2018
+		</span>
+	</div>
+</body>
+</html>

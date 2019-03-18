@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>尚硅谷会员注册页面</title>
+<link type="text/css" rel="stylesheet" href="../static/css/style.css" >
+<style type="text/css">
+	.login_form{
+		height:420px;
+		margin-top: 25px;
+	}
+</style>
+<script type="text/javascript" src="../static/js/jquery-1.7.2.js"></script>
+<script type="text/javascript">
+	$(function() {
+		//获取用户名、密码、确认密码、邮箱、验证码
+		var username=$("#username");
+		var password=$("#password");
+		var repwd=$("#repwd");
+		var sex=$("#sex");
+		var age=$("#age");
+		var sub=$("#sub_btn");
+		sub.click(function() {
+			//正则表达式，匹配字母数字下划线和减号，匹配3到16次
+			var unameReg=/^[0-9a-zA-Z_-]{3,16}$/;
+			if(!unameReg.test(username.val())){
+				alert("用户名格为字母、数字、下划线和减号组成,匹配3-16位！！！");
+				return false;
+			}
+			var pwdReg=/^[0-9a-zA-Z_-]{6,18}$/;
+			if(!pwdReg.test(password.val())){
+				alert("请输入6-18位的数字、字母、下划线或减号的密码！");
+				return false;
+			}
+			if(repwd.val()!=password.val()){
+				alert("两次密码输入不一致！！！")
+				return false;
+			}
+            //if(sex.val()==""){
+			//	alert("性别不能为空！！！")
+			//	return false;
+			//}
+			if(age.val()==""){
+				alert("年龄不能为空！！！")
+				return false;
+			}
+		});
+		
+	})
+</script>
+</head>
+<body>
+		<div id="login_header">
+			<img class="logo_img" alt="" src="../static/img/logo.gif" >
+		</div>
+		
+			<div class="login_banner">
+			
+				<div id="l_content">
+					<span class="login_word">欢迎注册</span>
+				</div>
+				
+				<div id="content">
+					<div class="login_form">
+						<div class="login_box">
+							<div class="tit">
+								<h1>注册尚硅谷会员</h1>
+								<span class="errorMsg"></span>
+							</div>
+							<div class="form">
+								<form action="/doRegiste/" method="post">
+									<label>用户名称：</label>
+									<input class="itxt" type="text" placeholder="请输入用户名" autocomplete="off" tabindex="1" name="username" id="username" />
+									<br />
+									<br />
+									<label>用户密码：</label>
+									<input class="itxt" type="password" placeholder="请输入密码" autocomplete="off" tabindex="1" name="password" id="password" />
+									<br />
+									<br />
+									<label>确认密码：</label>
+									<input class="itxt" type="password" placeholder="确认密码" autocomplete="off" tabindex="1" name="repwd" id="repwd" />
+									<br />
+									<br />
+									<label>性别：</label>
+									<input type="radio" checked value="男" name="sex">男 <input type="radio" value="女" name="sex">女
+                                    <br />
+									<br />
+                                    <label>年龄：</label>
+									<input class="itxt" type="text" placeholder="请输入年龄" autocomplete="off" tabindex="1" name="age" id="age" />
+									<br />
+									<br />
+									<input type="submit" value="注册" id="sub_btn" />
+									
+								</form>
+							</div>
+							
+						</div>
+					</div>
+				</div>
+			</div>
+		<div id="bottom">
+			<span>
+				尚硅谷用户管理系统.Copyright &copy;2018
+			</span>
+		</div>
+</body>
+</html>
